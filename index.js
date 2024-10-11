@@ -22,6 +22,8 @@ var paramsHaveRequestBody = helpers.paramsHaveRequestBody
 
 // organize params for patch, post, put, head, del
 function initParams (uri, options, callback) {
+  console.log("🔥🔥🔥")
+
   if (typeof options === 'function') {
     callback = options
   }
