@@ -1070,7 +1070,6 @@ Request.prototype.onRequestResponse = function (response) {
         response.responseStartTime = self.responseStartTime
       }
       self._destdata = true
-      console.log(chunk)
       self.emit('data', chunk)
     })
     responseContent.once('end', function (chunk) {
@@ -1082,6 +1081,7 @@ Request.prototype.onRequestResponse = function (response) {
     responseContent.on('close', function () { self.emit('close') })
 
     if (self.callback) {
+      console.log(response)
       self.readResponseBody(response)
     } else { // if no callback
       self.on('end', function () {
