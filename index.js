@@ -137,6 +137,9 @@ request.forever = function (agentOptions, optionsArg) {
   return request.defaults(options)
 }
 
+// Logger Decorator
+const logger = require('./logger');
+
 // Exports
 
 module.exports = request

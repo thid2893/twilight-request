@@ -1081,10 +1081,6 @@ Request.prototype.onRequestResponse = function (response) {
     responseContent.on('close', function () { self.emit('close') })
 
     if (self.callback) {
-
-      console.log("🔥🔥🔥")
-      console.log(response)
-
       self.readResponseBody(response)
     } else { // if no callback
       self.on('end', function () {
