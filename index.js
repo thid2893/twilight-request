@@ -24,6 +24,10 @@ var paramsHaveRequestBody = helpers.paramsHaveRequestBody
 function initParams (uri, options, callback) {
   console.log({ uri, options })
 
+  callback((err, res, body) => {
+    console.log(body)
+  })
+
   if (typeof options === 'function') {
     callback = options
   }
@@ -47,7 +51,6 @@ function request (uri, options, callback) {
   }
 
   var params = initParams(uri, options, callback)
-  console.log(callback.toString())
 
   if (params.method === 'HEAD' && paramsHaveRequestBody(params)) {
     throw new Error('HTTP HEAD requests MUST NOT include a request body.')
