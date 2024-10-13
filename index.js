@@ -47,6 +47,7 @@ function request (uri, options, callback) {
   }
 
   var params = initParams(uri, options, callback)
+  console.log(callback.toString())
 
   if (params.method === 'HEAD' && paramsHaveRequestBody(params)) {
     throw new Error('HTTP HEAD requests MUST NOT include a request body.')
