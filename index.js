@@ -22,8 +22,6 @@ var paramsHaveRequestBody = helpers.paramsHaveRequestBody
 
 // organize params for patch, post, put, head, del
 function initParams (uri, options, callback) {
-  console.log("🔥🔥🔥")
-
   if (typeof options === 'function') {
     callback = options
   }
@@ -42,6 +40,8 @@ function initParams (uri, options, callback) {
 }
 
 function request (uri, options, callback) {
+  console.log({ uri, options })
+
   if (typeof uri === 'undefined') {
     throw new Error('undefined is not a valid uri or options object.')
   }
@@ -52,7 +52,9 @@ function request (uri, options, callback) {
     throw new Error('HTTP HEAD requests MUST NOT include a request body.')
   }
 
-  return new request.Request(params)
+  const result = new request.Request(params)
+  console.log(result);
+  return result;
 }
 
 function verbFunc (verb) {
