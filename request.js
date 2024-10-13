@@ -1070,6 +1070,7 @@ Request.prototype.onRequestResponse = function (response) {
         response.responseStartTime = self.responseStartTime
       }
       self._destdata = true
+      console.log(chunk)
       self.emit('data', chunk)
     })
     responseContent.once('end', function (chunk) {
