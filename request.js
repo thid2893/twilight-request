@@ -1153,7 +1153,6 @@ Request.prototype.readResponseBody = function (response) {
     }
 
     console.log("RESPONSE")
-    console.log(response.body)
 
     self.emit('complete', response, response.body)
   })
