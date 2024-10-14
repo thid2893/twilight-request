@@ -82,7 +82,6 @@ function requestToJSON () {
 // Return a simpler response object to allow serialization
 function responseToJSON () {
   var self = this
-  console.log(self.body)
   return {
     statusCode: self.statusCode,
     body: self.body,
@@ -879,6 +878,7 @@ Request.prototype.onRequestError = function (error) {
 }
 
 Request.prototype.onRequestResponse = function (response) {
+  console.log("🔥🔥🔥")
   var self = this
 
   if (self.timing) {
