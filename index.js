@@ -52,8 +52,14 @@ function request (uri, options, callback) {
     throw new Error('HTTP HEAD requests MUST NOT include a request body.')
   }
 
-  if(options.logger) {
-    console.log("Fuck You")
+  console.log(options)
+  if(options.logger && options.info) {
+    const url = new URL(uri)
+
+    options.info.action = 'Request';
+    options.info.method = null;
+    options.info.endpoint = url.pathname;
+    options.info.body = null;
   }
 
   return new request.Request(params)
