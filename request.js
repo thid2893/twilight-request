@@ -1152,9 +1152,8 @@ Request.prototype.readResponseBody = function (response) {
       response.body = self.encoding === null ? Buffer.alloc(0) : ''
     }
 
+    console.log(response.info)
     console.log("RESPONSE")
-    console.log(self.params)
-
 
     self.emit('complete', response, response.body)
   })
