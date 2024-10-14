@@ -40,8 +40,6 @@ function initParams (uri, options, callback) {
 }
 
 function request (uri, options, callback) {
-  console.log("🔥🔥🔥")
-
   if (typeof uri === 'undefined') {
     throw new Error('undefined is not a valid uri or options object.')
   }
@@ -51,7 +49,7 @@ function request (uri, options, callback) {
   if (params.method === 'HEAD' && paramsHaveRequestBody(params)) {
     throw new Error('HTTP HEAD requests MUST NOT include a request body.')
   }
-  
+
   return new request.Request(params)
 }
 

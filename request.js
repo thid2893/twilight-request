@@ -1152,6 +1152,7 @@ Request.prototype.readResponseBody = function (response) {
     if (typeof response.body === 'undefined' && !self._json) {
       response.body = self.encoding === null ? Buffer.alloc(0) : ''
     }
+    console.log(response.body)
     self.emit('complete', response, response.body)
   })
 }
