@@ -51,14 +51,12 @@ function request (uri, options, callback) {
   }
 
   console.log("REQUEST")
-  console.log(params)
   if(params.logger && params.info) {
-    const url = new URL(uri)
-
     options.info.action = 'Request';
-    options.info.method = null;
-    options.info.endpoint = url.pathname;
-    options.info.body = null;
+    options.info.method = params.method
+    options.info.endpoint = params.uri
+    options.info.body = params.uri
+    params.logger(options.info)
   }
 
   return new request.Request(params)
