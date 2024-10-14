@@ -51,11 +51,8 @@ function request (uri, options, callback) {
   if (params.method === 'HEAD' && paramsHaveRequestBody(params)) {
     throw new Error('HTTP HEAD requests MUST NOT include a request body.')
   }
-
-  const result = new request.Request(params)
-  console.log(result)
-
-  return result;
+  
+  return new request.Request(params)
 }
 
 function verbFunc (verb) {
