@@ -51,7 +51,6 @@ function request (uri, options, callback) {
   }
 
   console.log("REQUEST")
-  console.log(params)
   if(params.logger && params.info) {
     params.info.action = 'Request';
     params.info.method = params.method
