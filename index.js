@@ -52,8 +52,7 @@ function request (uri, options, callback) {
 
   console.log("REQUEST")
   console.log(params)
-  console.log(options)
-  if(options.logger && options.info) {
+  if(params.logger && params.info) {
     const url = new URL(uri)
 
     options.info.action = 'Request';
