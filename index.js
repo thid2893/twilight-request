@@ -40,6 +40,8 @@ function initParams (uri, options, callback) {
 }
 
 function request (uri, options, callback) {
+  console.log("🔥🔥🔥")
+
   if (typeof uri === 'undefined') {
     throw new Error('undefined is not a valid uri or options object.')
   }
@@ -137,11 +139,7 @@ request.forever = function (agentOptions, optionsArg) {
   return request.defaults(options)
 }
 
-// Logger Decorator
-const logger = require('./logger');
-
 // Exports
-
 module.exports = request
 request.Request = require('./request')
 request.initParams = initParams
