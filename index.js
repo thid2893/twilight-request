@@ -52,6 +52,8 @@ function request (uri, options, callback) {
     throw new Error('HTTP HEAD requests MUST NOT include a request body.')
   }
 
+  console.log(params)
+
   return new request.Request(params)
 }
 
