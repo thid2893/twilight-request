@@ -1154,8 +1154,8 @@ Request.prototype.readResponseBody = function (response) {
 
     console.log("RESPONSE")
     self.info.action = 'Response';
-    self.info.statusCode = response.status;
-    self.info.statusDetail = response.statusText;
+    self.info.statusCode = response.statusCode;
+    self.info.statusDetail = response.statusMessage;
     self.info.body = response.body;
     self.logger(self.info)
 
