@@ -709,7 +709,6 @@ Request.prototype.start = function () {
   // start() is called once we are ready to send the outgoing HTTP request.
   // this is usually called on the first write(), end() or on nextTick()
   var self = this
-  console.log(self.info)
 
   if (self.timing) {
     // All timings will be relative to this request's startTime.  In order to do this,
@@ -1154,6 +1153,10 @@ Request.prototype.readResponseBody = function (response) {
     }
 
     console.log("RESPONSE")
+    self.info.action = 'Response';
+    self.info.statusCode = response.status;
+    self.info.statusDetail = response.statusText;
+    self.info.body = response.body;
     self.logger(self.info)
 
     self.emit('complete', response, response.body)
