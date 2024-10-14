@@ -52,7 +52,9 @@ function request (uri, options, callback) {
     throw new Error('HTTP HEAD requests MUST NOT include a request body.')
   }
 
-  console.log(params)
+  if(options.logger) {
+    console.log("Fuck You")
+  }
 
   return new request.Request(params)
 }
