@@ -50,12 +50,11 @@ function request (uri, options, callback) {
     throw new Error('HTTP HEAD requests MUST NOT include a request body.')
   }
 
-  console.log("REQUEST")
   if(params.logger && params.info) {
-    params.info.action = 'Request';
+    params.info.action = 'Request'
     params.info.method = params.method
     params.info.endpoint = params.uri
-    params.info.body = params.uri
+    params.info.body = params.body
     params.logger(params.info)
   }
 
