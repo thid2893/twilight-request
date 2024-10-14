@@ -52,7 +52,10 @@ function request (uri, options, callback) {
     throw new Error('HTTP HEAD requests MUST NOT include a request body.')
   }
 
-  return new request.Request(params)
+  const request = new request.Request(params)
+  console.log(request)
+
+  return request;
 }
 
 function verbFunc (verb) {
