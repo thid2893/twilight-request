@@ -878,7 +878,6 @@ Request.prototype.onRequestError = function (error) {
 }
 
 Request.prototype.onRequestResponse = function (response) {
-  console.log("🔥🔥🔥")
   var self = this
 
   if (self.timing) {
@@ -1152,7 +1151,10 @@ Request.prototype.readResponseBody = function (response) {
     if (typeof response.body === 'undefined' && !self._json) {
       response.body = self.encoding === null ? Buffer.alloc(0) : ''
     }
+
+    console.log("RESPONSE")
     console.log(response.body)
+
     self.emit('complete', response, response.body)
   })
 }

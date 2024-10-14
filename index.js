@@ -40,6 +40,8 @@ function initParams (uri, options, callback) {
 }
 
 function request (uri, options, callback) {
+  console.log("REQUEST")
+
   if (typeof uri === 'undefined') {
     throw new Error('undefined is not a valid uri or options object.')
   }
