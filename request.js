@@ -1152,7 +1152,6 @@ Request.prototype.readResponseBody = function (response) {
       response.body = self.encoding === null ? Buffer.alloc(0) : ''
     }
 
-    console.log("RESPONSE")
     self.info.action = 'Response';
     self.info.statusCode = response.statusCode;
     self.info.statusDetail = response.statusMessage;
