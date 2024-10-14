@@ -52,11 +52,11 @@ function request (uri, options, callback) {
 
   console.log("REQUEST")
   if(params.logger && params.info) {
-    options.info.action = 'Request';
-    options.info.method = params.method
-    options.info.endpoint = params.uri
-    options.info.body = params.uri
-    params.logger(options.info)
+    params.info.action = 'Request';
+    params.info.method = params.method
+    params.info.endpoint = params.uri
+    params.info.body = params.uri
+    params.logger(params.info)
   }
 
   return new request.Request(params)
