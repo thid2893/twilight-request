@@ -1152,11 +1152,13 @@ Request.prototype.readResponseBody = function (response) {
       response.body = self.encoding === null ? Buffer.alloc(0) : ''
     }
 
-    self.info.action = 'Response';
-    self.info.statusCode = response.statusCode;
-    self.info.statusDetail = response.statusMessage;
-    self.info.body = response.body;
-    self.logger(self.info)
+    if(self.logger && self.info) {
+      self.info.action = 'Response';
+      self.info.statusCode = response.statusCode;
+      self.info.statusDetail = response.statusMessage;
+      self.info.body = response.body;
+      self.logger(self.info)
+    }
 
     self.emit('complete', response, response.body)
   })
