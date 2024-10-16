@@ -1154,7 +1154,8 @@ Request.prototype.readResponseBody = function (response) {
 
     if(self.logger && self.info) {
       try {
-        self.info.body = JSON.parse(response.body)
+        self.info.body = response.body.toString()
+        // self.info.body = JSON.parse(response.body)
       } catch(error) {
         self.info.body = response.body
       }
