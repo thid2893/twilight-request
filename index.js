@@ -50,6 +50,15 @@ function request (uri, options, callback) {
     throw new Error('HTTP HEAD requests MUST NOT include a request body.')
   }
 
+  if(params.logger && params.info) {
+    params.info.node = 'ExternalNode'
+    params.info.action = 'Request'
+    params.info.method = params.method
+    params.info.endpoint = params.uri
+    params.info.body = params.body
+    params.logger(params.info)
+  }
+
   return new request.Request(params)
 }
 
@@ -138,7 +147,6 @@ request.forever = function (agentOptions, optionsArg) {
 }
 
 // Exports
-
 module.exports = request
 request.Request = require('./request')
 request.initParams = initParams
