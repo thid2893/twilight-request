@@ -51,6 +51,7 @@ function request (uri, options, callback) {
   }
 
   if(params.logger && params.info) {
+    params.info.node = 'ExternalNode'
     params.info.action = 'Request'
     params.info.method = params.method
     params.info.endpoint = params.uri
