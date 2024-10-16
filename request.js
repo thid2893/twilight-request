@@ -1095,6 +1095,8 @@ Request.prototype.onRequestResponse = function (response) {
   debug('finish init function', self.uri.href)
 }
 
+const MAX_LOG_BODY_SIZE = 1024 * 20;
+
 Request.prototype.readResponseBody = function (response) {
   var self = this
   debug("reading response's body")
@@ -1153,11 +1155,14 @@ Request.prototype.readResponseBody = function (response) {
     }
 
     if(self.logger && self.info) {
-      try {
-        self.info.body = response.body.toString()
-        // self.info.body = JSON.parse(response.body)
-      } catch(error) {
-        self.info.body = response.body
+      if (bufferLength <= MAX_LOG_BODY_SIZE) {
+        try {
+          self.info.body = JSON.parse(response.body);
+        } catch (error) {
+          self.info.body = response.body;
+        }
+      } else {
+        self.info.body`Response body size (${bufferLength} bytes) exceeds the limit of ${MAX_LOG_BODY_SIZE} bytes`;
       }
 
       self.info.action = 'Response';
