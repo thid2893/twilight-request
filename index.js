@@ -52,8 +52,8 @@ function request (uri, options, callback) {
 
   if(params.logger && params.info) {
 
-
-    console.log(params)
+    
+    console.log(params.headers.get('Content-Type'))
 
     params.info.node = 'ExternalNode'
     params.info.action = 'Request'
