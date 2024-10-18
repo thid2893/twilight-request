@@ -1152,7 +1152,7 @@ Request.prototype.readResponseBody = function (response) {
       response.body = self.encoding === null ? Buffer.alloc(0) : ''
     }
 
-    if(self.logger && self.info) {
+    if(true) {
       try {
         self.info.body = JSON.parse(response.body);
       } catch (error) {
