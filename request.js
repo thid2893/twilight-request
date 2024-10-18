@@ -1152,15 +1152,19 @@ Request.prototype.readResponseBody = function (response) {
       response.body = self.encoding === null ? Buffer.alloc(0) : ''
     }
 
-    if(true) {
-      try {
-        self.info.body = JSON.parse(response.body);
-      } catch (error) {
-        self.info.body = response.body;
+    if (self.logger && self.info) {
+      switch (self.headers['Content-Type']) {
+        case 'application/json':
+          try {
+            self.info.body = JSON.parse(response.body);
+          } catch (error) {
+            self.info.body = response.body;
+          }
+          break;
+        default:
+          self.info.body = response.body;
+          break;
       }
-
-      
-      console.log(self.headers['Content-Type'])
 
       self.info.action = 'Response';
       self.info.statusCode = response.statusCode;
